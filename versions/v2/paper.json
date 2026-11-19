@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 83211,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "5c7762bc51afd7afda4361eca1f67d29a27fb5bdebbd84bd753484bac2980d16",
+      "sha256": "5c7762bc51afd7afda4361eca1f67d29a27fb5bdebbd84bd753484bac2980d16"
+    },
+    "source": {
+      "bytes": 13908,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "3cd69c94e3e1bf56047c45f6a1917fcc435e86517ddd4fcf493b71d64126c938",
+      "sha256": "3cd69c94e3e1bf56047c45f6a1917fcc435e86517ddd4fcf493b71d64126c938"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "Extending Patel's (2026) polynomiality picture, we disprove the finiteness conjecture of Rowland and Sistos Barrón at arXiv:2501.14643v1, Section 1, p. 2: every initial rank r >= 3 admits infinitely many general rank sequences, realized by positive integer sequences. Their ranks are binomial(M+r-1,r-1) - binomial(M-K+r-1,r-1), with the second term zero when M < K, so arbitrarily long maximal prefixes do not determine the full rank sequence. A different family, s_p(n) = p*8^n - 4^n - 2^n, gives infinitely many particular rank sequences under one fixed rank-three recurrence, by parameter-dependent coefficient cancellation. These conclusions concern the number of entire rank sequences, rather than their individual eventual polynomiality.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "b0f7c01b01511ea00428c1b6edad5dd2b372eaf8",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/RowlandSistosBarronRankSequences.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 83211,
+      "sha256": "5c7762bc51afd7afda4361eca1f67d29a27fb5bdebbd84bd753484bac2980d16",
+      "url": "/api/v1/collected-papers/rowland-sistos-barron-2025-rank-sequences/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-19T22:18:17.345929566Z",
+    "record": "rowland-sistos-barron-2025-rank-sequences",
+    "repository_name": "rowland-sistos-barron-2025-rank-sequences",
+    "source": {
+      "bytes": 13908,
+      "sha256": "3cd69c94e3e1bf56047c45f6a1917fcc435e86517ddd4fcf493b71d64126c938",
+      "url": "/api/v1/collected-papers/rowland-sistos-barron-2025-rank-sequences/files/source?version=2"
+    },
+    "title": "Infinitely many general rank sequences: extending Patel's polynomiality picture (2026) at arXiv:2501.14643v1, Section 1, p. 2",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-19T22:18:17.345929566Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "rowland-sistos-barron-2025-rank-sequences"
+  }
+}

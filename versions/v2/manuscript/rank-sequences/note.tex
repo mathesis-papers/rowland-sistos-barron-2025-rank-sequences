@@ -1,0 +1,361 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\title{Infinitely many general rank sequences:\\
+extending Patel's polynomiality picture (2026)\\
+at arXiv:2501.14643v1, Section~1, p.~2}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\
+\small ChronoAI Pte Ltd, Singapore}
+\date{8 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Extending Patel's (2026) polynomiality picture, we disprove the finiteness
+conjecture of Rowland and Sistos Barr\'on at arXiv:2501.14643v1,
+Section~1, p.~2: every initial rank $r\geq3$ admits infinitely many
+general rank sequences, realized by positive integer sequences.
+Their ranks are $\binom{M+r-1}{r-1}-\binom{M-K+r-1}{r-1}$, with the
+second term zero when $M<K$, so arbitrarily long maximal prefixes do not
+determine the full rank sequence. A different family,
+$s_p(n)=p8^n-4^n-2^n$, gives infinitely many particular rank sequences
+under one fixed rank-three recurrence, by parameter-dependent coefficient
+cancellation. These conclusions concern the number of entire rank
+sequences, rather than their individual eventual polynomiality.
+\end{abstract}
+
+\section{The conjecture and the counterexample}
+Rowland and Sistos Barr\'on~\cite[Section~1, p.~2]{RSB} write
+``we conjecture that there are only finitely many rank sequences'',
+for each fixed initial rank. Theorem~\ref{general} gives infinitely many
+without coefficient cancellation at every rank $r\geq3$;
+Theorem~\ref{main} instead keeps all three characteristic roots fixed.
+Characteristic-root expansions for termwise powers are
+classical~\cite[Theorem~1]{Stinchcombe}. Patel's posted
+Hilbert-function proof~\cite[equations~(17), (23)]{Patel}
+settles polynomiality of the general class; it does not assert finiteness
+of that class at fixed rank. The constructions below distinguish these
+two questions.
+An earlier eventual-polynomiality announcement appears in the report-talk
+abstract of Sistos Barr\'on~\cite[PDF p.~23]{Sistos2023}.
+
+Following~\cite[Section~2, p.~3]{RSB}, a sequence $s:\N\to\Z$ is
+\emph{constant-recursive} if, for all sufficiently large $n$,
+\[
+ s(n+d)=c_{d-1}s(n+d-1)+\cdots+c_0s(n),\qquad c_0\ne0.
+\]
+We take $c_i\in\Q$ and define $\rank s$ as the least such order $d$;
+an eventually zero sequence has rank zero. Its \emph{rank sequence} is
+$R_s(M)=\rank(n\mapsto s(n)^M)$ for integers $M\geq1$.
+Equality means agreement at every positive exponent, including the initial
+terms. The construction below has the same ranks even if complex
+recurrence coefficients are allowed.
+
+\begin{theorem}\label{main}
+For each integer $p\geq3$, set $s_p(n)=p8^n-4^n-2^n$ for $n\geq0$.
+These positive integer sequences have rank three and all satisfy
+\begin{equation}\label{common}
+ s_p(n+3)=14s_p(n+2)-56s_p(n+1)+64s_p(n).
+\end{equation}
+Write $R_p=R_{s_p}$. Then
+\begin{equation}\label{support}
+ R_p(M)=\#\{0\leq j\leq2M:[X^j](1+X-pX^2)^M\ne0\}.
+\end{equation}
+For each fixed $M\geq1$, $R_p(M)=2M+1$ for all but finitely many
+integers $p\geq3$, but $R_p(2p+1)\leq4p+2$ for every $p$.
+The set $\{R_p:p\geq3\}$ is infinite.
+\end{theorem}
+
+\section{Proof}
+We first justify the passage from exponential expressions to minimal
+recurrences. This is the distinct-root case of
+\cite[Theorems~2.1--2.2]{RSB}; we include the tail argument.
+
+\begin{lemma}\label{exponential}
+Let $v_1,\ldots,v_h$ be distinct nonzero rational numbers and let
+$a_1,\ldots,a_h$ be nonzero rational numbers. If
+$t(n)=\sum_{i=1}^h a_i v_i^n$ is integer-valued, then $\rank t=h$.
+The same lower bound holds for recurrences with complex coefficients.
+\end{lemma}
+\begin{proof}
+The polynomial $P(T)=\prod_{i=1}^h(T-v_i)$ annihilates $t$ under the
+shift $Et(n)=t(n+1)$. Its degree is $h$, its coefficients are rational,
+and its constant term is nonzero, giving a recurrence of order $h$.
+Conversely, let a monic polynomial $Q$ of degree $d$ encode any recurrence
+valid for $n\geq N$. For $k=0,\ldots,h-1$ we obtain
+\[
+ 0=(Q(E)t)(N+k)=\sum_{i=1}^h a_i v_i^N Q(v_i)v_i^k.
+\]
+The Vandermonde matrix $(v_i^k)_{0\leq k<h,\,1\leq i\leq h}$ has
+determinant $\prod_{i<j}(v_j-v_i)\ne0$. Therefore $Q(v_i)=0$ for every
+$i$, since $a_i v_i^N\ne0$. A nonzero polynomial of degree $d$ cannot
+have more than $d$ distinct roots, so $d\geq h$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{main}]
+The three distinct bases $2,4,8$ have nonzero coefficients $-1,-1,p$,
+so Lemma~\ref{exponential} gives $\rank s_p=3$. Their characteristic
+polynomial is
+$(T-2)(T-4)(T-8)=T^3-14T^2+56T-64$, proving~\eqref{common}.
+Writing $x=2^n\geq1$ gives
+$s_p(n)=x(px^2-x-1)>0$, since
+$px^2-x-1\geq3x^2-x-1\geq1$.
+
+Let $F_p(X)=1+X-pX^2$ and $a_{M,j}(p)=[X^j]F_p(X)^M$. The identity
+$s_p(n)=-2^nF_p(2^n)$ yields
+\begin{equation}\label{expansion}
+ s_p(n)^M=(-1)^M\sum_{j=0}^{2M}a_{M,j}(p)
+                    \bigl(2^{M+j}\bigr)^n.
+\end{equation}
+The bases $2^{M+j}$ are distinct and nonzero. Keeping exactly the
+nonzero summands and applying Lemma~\ref{exponential} proves~\eqref{support}.
+
+For fixed $M$ and $j$, regard
+$a_{M,j}(P)=[X^j](1+X-PX^2)^M$ as a polynomial in $P$ over $\Q$.
+It is not the zero polynomial: at $P=-1$ its value is the positive
+coefficient $[X^j](1+X+X^2)^M$. Positivity holds for every
+$0\leq j\leq2M$: choose $\lfloor j/2\rfloor$ quadratic factors,
+$j-2\lfloor j/2\rfloor$ linear factors, and constant terms from
+the remaining factors. There are enough factors because
+$\lceil j/2\rceil\leq M$, and all contributions are positive.
+Each polynomial $a_{M,j}$ therefore has finitely many integer roots.
+Thus the union
+\[
+ B_M=\{p\geq3:\text{some }a_{M,j}(p)=0,\ 0\leq j\leq2M\}
+\]
+is finite. Outside $B_M$, formula~\eqref{support} gives $R_p(M)=2M+1$.
+
+On the other hand, selecting either two linear factors or one quadratic
+factor gives
+\begin{equation}\label{cancellation}
+ [X^2]F_p(X)^M=\binom M2-pM
+              =\frac{M(M-1-2p)}2.
+\end{equation}
+It vanishes at $M=2p+1$, so~\eqref{support} gives
+$R_p(2p+1)\leq2(2p+1)=4p+2$.
+
+Fix any rank sequence $R$ attained by the family, and choose $p_0\geq3$
+with $R_{p_0}=R$. At $M_0=2p_0+1$ its rank is strictly below $2M_0+1$.
+Every $q$ with $R_q=R$ must therefore belong to the finite set $B_{M_0}$.
+Thus every fibre of $p\mapsto R_p$ is finite. If its image were finite,
+the infinite set of integers $p\geq3$ would be a finite union of finite
+fibres, a contradiction.
+\end{proof}
+
+\begin{corollary}\label{prefix}
+For every $L\geq1$, infinitely many distinct rank sequences from this
+family satisfy $R(M)=2M+1$ for all $1\leq M\leq L$, and each differs
+from $2M+1$ at some later exponent.
+\end{corollary}
+\begin{proof}
+The union $B_1\cup\cdots\cup B_L$ is finite. Infinitely many parameters
+remain, and finite fibres give infinitely many distinct rank sequences.
+For any remaining $p$, cancellation at $2p+1$ forces $2p+1>L$.
+\end{proof}
+The comparison sequence $2M+1$ is itself attained by $8^n+4^n+2^n$:
+the corresponding polynomial $(1+X+X^2)^M$ has all its coefficients
+positive. Thus these finite prefixes also agree with an actual general
+rank sequence under the same recurrence~\eqref{common}.
+
+\begin{corollary}\label{base}
+For every fixed integer $b\geq2$, the positive integer sequences
+$s_{p,b}(n)=pb^{3n}-b^{2n}-b^n$, $p\geq3$, have the same rank
+sequences $R_p$ as above. In particular, infinitely many occur under
+the single characteristic polynomial $(T-b)(T-b^2)(T-b^3)$.
+\end{corollary}
+\begin{proof}
+Replace $2^n$ by $b^n$ in~\eqref{expansion}. The bases $b^{M+j}$ remain
+distinct and nonzero, so Lemma~\ref{exponential} gives exactly the same
+coefficient count. Positivity follows from $x=b^n\geq1$ as before.
+\end{proof}
+
+\section{Infinitely many general rank sequences}
+Here a rank sequence is \emph{general} in the sense of
+\cite[Section~5, p.~13]{RSB} when merging equal products of characteristic
+roots causes no coefficient cancellation. All the exponential coefficients
+in the following family are positive.
+
+\begin{theorem}\label{general}
+Fix $r\geq3$ and distinct odd primes $q_1,\ldots,q_{r-3}$, with an empty
+list when $r=3$. For every integer $K\geq2$, put
+\[
+ u_{r,K}(n)=1+2^n+2^{Kn}+\sum_{i=1}^{r-3}q_i^n.
+\]
+This is a positive integer sequence of rank $r$, and its general rank
+sequence is
+\begin{equation}\label{generalformula}
+ H_{r,K}(M)=\binom{M+r-1}{r-1}-
+ \begin{cases}\binom{M-K+r-1}{r-1},&M\geq K,\\0,&M<K.\end{cases}
+\end{equation}
+Different $K$ give different rank sequences. For $M\geq K$ the displayed
+expression is a polynomial of degree $r-2$ with leading coefficient
+$K/(r-2)!$.
+\end{theorem}
+\begin{proof}
+The $r$ distinct nonzero integer bases are $1,2,2^K,q_1,\ldots,q_{r-3}$.
+Lemma~\ref{exponential} gives rank $r$ and a minimal characteristic
+polynomial equal to the product of $T$ minus these bases.
+The multinomial expansion of the $M$th power has positive coefficients,
+so its rank is exactly the number of distinct products of $M$ bases.
+
+A product is described by nonnegative integers
+$(z,a,c,e_1,\ldots,e_{r-3})$ with sum $M$ and value
+$2^{a+Kc}\prod_iq_i^{e_i}$. Unique factorization determines each $e_i$
+and the integer $a+Kc$. Replace every block of $K$ copies of $2$ by one
+copy of $2^K$ and $K-1$ copies of $1$. This preserves both value and
+the total number $M$ of factors and gives $0\leq a<K$.
+This representation is unique: $a$ is the residue of the exponent of $2$
+modulo $K$, then $c$ and the $e_i$ are determined, and finally so is $z$.
+Consequently the products are counted by all weak compositions of $M$
+into $r$ parts with $a<K$. There are $\binom{M+r-1}{r-1}$ compositions
+in total. Those with $a\geq K$ are in bijection with weak compositions
+of $M-K$, by subtracting $K$ from $a$, proving~\eqref{generalformula}.
+
+If $K<L$, then at $M=K$ the second binomial term is $1$ for $K$ and
+$0$ for $L$, proving distinctness. For $M\geq K$, subtracting the
+two degree-$(r-1)$ binomial polynomials cancels their leading terms;
+the coefficient of $M^{r-2}$ is $(r-1)K/(r-1)!=K/(r-2)!$.
+\end{proof}
+
+\begin{corollary}\label{maxprefix}
+For every $r\geq3$ and $L\geq1$, infinitely many general rank sequences
+have $R(M)=\binom{M+r-1}{r-1}$ for $1\leq M\leq L$, but differ at
+later exponents. At rank three their eventual polynomials are
+$KM+K(3-K)/2$, for all $K\geq2$.
+\end{corollary}
+\begin{proof}
+Take all $K>L$ in Theorem~\ref{general}. Their first departure from the
+binomial bound is exactly $M=K$. The rank-three formula follows by
+expanding~\eqref{generalformula}.
+\end{proof}
+
+\begin{corollary}\label{relations}
+Every subgroup
+\[
+ N_K=\mathbb Z(K-1,-K,1,0,\ldots,0)\subseteq\mathbb Z^r,\quad K\geq2,
+\]
+is exactly the subgroup of homogeneous product relations of an
+integer-root characteristic polynomial of degree $r$. Its quotient is
+free of rank $r-1$.
+\end{corollary}
+\begin{proof}
+Use the ordered roots $1,2,2^K,q_1,\ldots,q_{r-3}$ above. A homogeneous
+relation $v$ satisfies $\sum_i v_i=0$ and $\prod_i\rho_i^{v_i}=1$.
+Unique factorization gives $v_i=0$ at the odd-prime coordinates and
+$v_2+Kv_3=0$, hence $v_1=(K-1)v_3$. The vector is primitive because
+its third coordinate is $1$, so the quotient has no torsion and rank
+$r-1$. Homogeneity is essential: unrestricted multiplicative relations
+are a different subgroup.
+\end{proof}
+Thus the degree in Theorem~\ref{general} is $d-1$ for $d=r-1$, as in
+Conjecture~6.2. These examples realize a family of relation groups; they
+do not classify all possible relation groups of algebraic roots.
+
+\section{Examples and source-item coverage}
+Formula~\eqref{cancellation} supplies a cancellation exponent, not
+necessarily the first cancellation. For example, at $M=7$ the coefficient
+counts are $R_3(7)=13$ and $R_{11}(7)=15$, although both families have
+the same minimal recurrence~\eqref{common}. The exact integer calculations
+in \texttt{verify.py} compare convolution with multinomial expansion for
+$3\leq p\leq30$ and $1\leq M\leq65$, and also check five Hankel
+determinants. These finite checks illustrate the identities; the
+infinite-family conclusion follows from the proof above. Additional
+finite checks compare positive-coefficient product expansions with
+\eqref{generalformula} for $3\leq r\leq6$, $2\leq K\leq12$ and
+$1\leq M\leq12$.
+
+Patel~\cite[equations~(17), (23)]{Patel} proves that general rank
+sequences are eventually polynomial: the degree is $d-1$ for distinct
+roots, and $d$ if some root repeats, where $d$ is the free rank of the
+homogeneous relation quotient. The argument uses a standard graded
+algebra whose degree-$M$ dimension counts the distinct products, including
+their maximal polynomial-coefficient degrees. This supplies the general
+half of Conjecture~5.3 and Conjecture~6.2, independently of the finiteness
+counterexamples here.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{.43\linewidth}p{.50\linewidth}@{}}
+\toprule
+Source item in Rowland--Sistos Barr\'on~\cite{RSB} & Coverage\\
+\midrule
+Section~1, p.~2: fixed-rank finiteness &
+Refuted (explicit counterexample): Theorem~\ref{main} at rank three,
+Theorem~\ref{general} at every rank $r\geq3$.\\[3pt]
+Section~5, p.~13: general versus particular classes &
+Not posed; proved: both classes contain infinitely many rank-three
+rank sequences. Corollaries~\ref{prefix}, \ref{maxprefix} give unbounded
+indistinguishable prefixes in each class.\\[3pt]
+Conjecture~5.3, p.~15: ``Every general rank sequence is eventually
+polynomial.'' &
+Prior proof cited: Patel (2026), equation~(23).
+The particular-class pseudo-polynomial assertion is not covered.\\[3pt]
+Theorem~5.4, pp.~16--17: five general rank-two sequences &
+Prior proof cited: Rowland--Sistos Barr\'on (2025).
+No additional rank-two classification is asserted.\\[3pt]
+Conjecture~6.2, p.~19: ``degree $d-1$'' for distinct-root general rank
+sequences &
+Prior proof cited: Patel (2026), equation~(17).
+Corollary~\ref{relations} realizes $d=r-1$.\\[3pt]
+Section~6, pp.~17--20: possible algebraic-root relations &
+Not posed; proved: every $N_K$ in Corollary~\ref{relations} is realized.
+The full realization question is not covered.\\[3pt]
+Table~2, p.~15, and Appendix, pp.~21--23: finite lists and lower bounds &
+Not posed; proved: infinitely many examples at ranks $3,4,5$
+(Theorem~\ref{general}). The finite searches give lower bounds,
+not exhaustive classifications.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Formal statement.}
+\begin{sloppypar}
+In the \href{https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/RowlandSistosBarronRankSequences.lean}{pinned Lean source}, the declaration
+\nolinkurl{D5.S1.Recurrence.RowlandSistosBarronRankSequences.result}
+has conclusion $\neg\,\texttt{claim}$, where \texttt{claim} is fixed-rank
+finiteness over integer sequences with rational tail recurrences and all
+positive exponents. Its coefficient-support and finite-fibre argument is
+the one in Theorem~\ref{main}. Positivity, the common recurrence,
+and the complex-coefficient lower bound have written proofs here.
+Corollaries~\ref{prefix}, \ref{base},
+\ref{maxprefix}, \ref{relations}, and Theorem~\ref{general} have written
+proofs above. The finite coefficient and Hankel calculations have only
+the explicit ranges stated here and in \texttt{verification.json}.
+\end{sloppypar}
+
+\begin{thebibliography}{4}
+\bibitem{RSB}
+Eric Rowland and Jes\'us Sistos Barr\'on,
+\emph{Complexity of powers of a constant-recursive sequence},
+arXiv:2501.14643v1 [math.NT], 2025, 23 pp.
+\href{https://arxiv.org/abs/2501.14643v1}{arXiv:2501.14643v1}.
+\bibitem{Stinchcombe}
+Adam Michael Stinchcombe,
+\emph{Recurrence relations for powers of recursion sequences},
+The Fibonacci Quarterly \textbf{36}(5) (1998), 443--447.
+\href{https://www.fq.math.ca/Scanned/36-5/stinchcombe.pdf}{Full text}.
+\bibitem{Patel}
+Shivam Patel,
+\emph{Degree conjecture for general rank sequences}, MathDB,
+posted solution, 2026, equations~(17), (23).
+\href{https://mathdb.com/p/366796/degree-conjecture-for-general-rank-sequences}{Full text}.
+\bibitem{Sistos2023}
+Jes\'us Omar Sistos Barr\'on,
+\emph{The sequence of ranks of the powers of a sequence}, report-talk
+abstract, Young Mathematicians Conference 2023, Ohio State University,
+PDF p.~23; mentor Eric Rowland.
+\href{https://ymc.osu.edu/sites/default/files/2023-08/ymc_2023-2.pdf}{Conference abstracts}.
+\end{thebibliography}
+
+\noindent\small\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International (CC BY 4.0)}.
+\end{document}

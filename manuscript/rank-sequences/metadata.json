@@ -1,0 +1,51 @@
+{
+  "id": "rowland-sistos-barron-2025-rank-sequences",
+  "revision": 2,
+  "problem_ids": ["rowland-sistos-barron-2025-rank-sequences"],
+  "topic": "Fixed-initial-rank finiteness at arXiv:2501.14643v1, Section 1, page 2, and its general and particular subclasses",
+  "title": "Infinitely many general rank sequences: extending Patel's polynomiality picture (2026) at arXiv:2501.14643v1, Section 1, p. 2",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "Extending Patel's (2026) polynomiality picture, we disprove the finiteness conjecture of Rowland and Sistos Barrón at arXiv:2501.14643v1, Section 1, p. 2: every initial rank r >= 3 admits infinitely many general rank sequences, realized by positive integer sequences. Their ranks are binomial(M+r-1,r-1) - binomial(M-K+r-1,r-1), with the second term zero when M < K, so arbitrarily long maximal prefixes do not determine the full rank sequence. A different family, s_p(n) = p*8^n - 4^n - 2^n, gives infinitely many particular rank sequences under one fixed rank-three recurrence, by parameter-dependent coefficient cancellation. These conclusions concern the number of entire rank sequences, rather than their individual eventual polynomiality.",
+  "summary": "Positive integer sequences realize infinitely many general rank sequences at each initial rank r >= 3, and infinitely many particular rank-three rank sequences under one common recurrence. Full proofs give exact ranks, arbitrarily long shared prefixes, and explicit homogeneous relation groups.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/RowlandSistosBarronRankSequences.lean",
+  "posing_source": {
+    "authors": ["Eric Rowland", "Jesús Sistos Barrón"],
+    "title": "Complexity of powers of a constant-recursive sequence",
+    "url": "https://arxiv.org/abs/2501.14643v1",
+    "date": "2025-01-24",
+    "locator": "Section 1, page 2; definitions in Section 2, pages 3–4"
+  },
+  "coverage": {
+    "main_statement": "For each r >= 3, the positive integer sequences 1 + 2^n + 2^(K*n) + sum(q_i^n), K >= 2, with r-3 distinct odd primes q_i, have infinitely many distinct general rank sequences.",
+    "exact_rank": "H_(r,K)(M) = binomial(M+r-1,r-1) - binomial(M-K+r-1,r-1), with the second term zero for M < K.",
+    "fixed_recurrence_statement": "The positive integer family s_p(n) = p*8^n - 4^n - 2^n, p >= 3, has infinitely many rank sequences and satisfies s(n+3) = 14*s(n+2) - 56*s(n+1) + 64*s(n).",
+    "formal_declaration": "D5.S1.Recurrence.RowlandSistosBarronRankSequences.result",
+    "formal_statement": "Negation of fixed-rank finiteness for integer-valued sequences with rational tail recurrences and every positive exponent; the proof specializes to the rank-three family s_p.",
+    "written_proofs": [
+      "The Vandermonde lower bound for distinct nonzero rational exponential bases, including tail recurrences and complex recurrence coefficients",
+      "Fixed-recurrence coefficient-support formula, finite exceptional parameter sets, designated cancellation, and finite parameter fibres",
+      "Positive integer sequences and the common recurrence for s_p",
+      "Infinitely many particular rank sequences agreeing with 2*M+1 through any prescribed finite exponent",
+      "The same particular rank sequences for every integer base b >= 2",
+      "The all-rank general-family formula by unique canonical product representations",
+      "Infinitely many general rank sequences sharing arbitrarily long maximal binomial prefixes",
+      "Exact homogeneous relation subgroup Z*(K-1,-K,1,0,...,0), with free quotient rank r-1"
+    ],
+    "prior_results_cited": [
+      {"source": "Shivam Patel, Degree conjecture for general rank sequences (2026), equations (17) and (23)", "url": "https://mathdb.com/p/366796/degree-conjecture-for-general-rank-sequences", "scope": "General-class eventual polynomiality, including root multiplicities, and the distinct-root degree formula in Conjecture 6.2"},
+      {"source": "Rowland and Sistos Barrón (2025), Theorem 5.4, pages 16–17", "scope": "Five general rank-two sequences"},
+      {"source": "Jesús Omar Sistos Barrón (2023), Young Mathematicians Conference report-talk abstract, PDF page 23", "url": "https://ymc.osu.edu/sites/default/files/2023-08/ymc_2023-2.pdf", "scope": "Earlier announcement of eventual polynomiality; the abstract contains no proof"}
+    ],
+    "finite_checks": "1,820 trinomial powers with independent coefficient expansions; 121,940 coefficient comparisons; 4,200 original exponential identities; five Hankel determinants; 528 general-family product-support counts for r=3..6, K=2..12, M=1..12, with 192 additional sequence-expansion identities and 44 first-departure comparisons.",
+    "not_covered": [
+      "Eventual pseudo-polynomiality for every particular rank sequence, the second assertion of Conjecture 5.3",
+      "The exact first cancellation exponent for every parameter in s_p",
+      "Classification of every algebraic-root relation group",
+      "A classification of all particular rank-two sequences"
+    ]
+  }
+}
