@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24381373",
     "current_version": 2,
     "doi": "10.5281/zenodo.24381374",
+    "kind": "note",
     "lean_source": {
       "revision": "b0f7c01b01511ea00428c1b6edad5dd2b372eaf8",
       "url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/RowlandSistosBarronRankSequences.lean"
@@ -55,10 +56,12 @@
     "title": "Infinitely many general rank sequences: extending Patel's polynomiality picture (2026) at arXiv:2501.14643v1, Section 1, p. 2",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-19T22:18:17.345929566Z",
         "revision": "2",
-        "version": 2
+        "version": 2,
+        "version_label": null
       }
     ],
     "work": "rowland-sistos-barron-2025-rank-sequences"
